@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package ecommerce;
+
+// The ProductService definition.
+service ProductService {
+  // Retrieves product information by ID
+  rpc GetProduct (ProductRequest) returns (ProductResponse);
+}
+
+// The request message containing the product's ID.
+message ProductRequest {
+  string id = 1;
+}
+
+// The response message containing the product's details.
+message ProductResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  float price = 4;
+  int32 stock = 5;
+}
+

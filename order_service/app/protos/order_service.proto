@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ecommerce;
+
+// The OrderService definition.
+service OrderService {
+  // Creates a new order
+  rpc CreateOrder (CreateOrderRequest) returns (OrderResponse);
+}
+
+// Product Information within an order
+message ProductInfo {
+  string id = 1;
+  int32 quantity = 2;
+}
+
+// CreateOrderRequest defines the request structure for creating orders
+message CreateOrderRequest {
+  repeated ProductInfo products = 1;
+}
+
+// OrderResponse returns the order id after creation
+message OrderResponse {
+  string id = 1;
+}
+
